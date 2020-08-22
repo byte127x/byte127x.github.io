@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Solve an expression</title>
+    <meta charset="UTF-8">
+    <style>
+       p {
+        font-family: serif;
+      }
+      code {
+        background: rgba(0,0,0,0.1);
+        border: 1px solid rgba(0,0,0,0.1);
+      }
+      input, button {
+        font-family: inherit;
+        font-size: inherit;
+      }
+      ul {
+        margin: 0;
+      }
+      h4 {
+        font-family: "Courier";
+    </style>
+  </head>
+  <body>
+    <h4>Type In Your Equation Here:</h4><br>
+    <input placeholder="Expression here"/><button onclick="document.querySelector('span').innerHTML=calc(document.querySelector('input').value)">Calculate</button><br>
+    equals <span>0</span>.<br>
+    Found a glitch? Yell at me in real life or contact me on my <a href="https://scratch.mit.edu/users/Sheep_maker/">Scratch profile</a>.
+    <br><br>
+    What you can do:
+    <ul>
+      <li>add stuff <code>3 + 3</code></li>
+      <li>subtract stuff <code>3 - 2</code></li>
+      <li>multiply stuff <code>3 * 4</code></li>
+      <li>divide stuff <code>1 / 0</code></li>
+      <li>get the reminder of stuff <code>5 % 2</code></li>
+      <li>constantly multiply stuff a bunch of times over and over again because it's cool <code>5 ^ 4</code></li>
+      <li>prioritize some fun stuff first just because <code>5 / (3 + 2)</code></li>
+      <li>find the fourth root of something though I doubt you'd need it <code>81 ^ (1 / 4)</code></li>
+      <li>be enemies with a number <code>-(-4)</code></li>
+      <li>remove nonexistences <code>1 - -2</code></li>
+      <li>do cool stuff <code>sqrt(49)</code> here's the list of the cool stuff you can use:
+        <ul>
+          <li>abs</li>
+          <li>sin</li>
+          <li>cos</li>
+          <li>tan</li>
+          <li>ceil</li>
+          <li>floor</li>
+          <li>round</li>
+          <li>log</li>
+          <li>sqrt</li>
+        </ul>
+      </li>
+      <li>master the uses of special numbers long enough to explodenize your brain <code>pi</code> here's the list:
+        <ul>
+          <li>e</li>
+          <li>pi</li>
+        </ul>
+      </li>
+    </ul>
+    Based On Sheeptester's Calculator Here: https://sheeptester.github.io/calculator/calc/
+    <script src="../sheep.js"></script>
+    <script src="calc.js"></script>
+  </body>
+</html>
