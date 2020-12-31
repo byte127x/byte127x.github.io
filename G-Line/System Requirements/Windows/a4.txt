@@ -1,0 +1,3 @@
+RAM: (Minimum: 512 MB | Recommended: 4GB+)
+CPU: (Minimum: Intel Celeron or equivelant | Recommended: Whatever you want)
+GPU : (NOT NEEDED)
