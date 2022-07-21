@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>X-Code 1.0</title>
+	<style>
+		div {
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+		}
+
+		textarea {
+			height: 100%;
+			resize: none;
+		}
+
+		section {
+			display: flex;
+			padding: 0;
+			height: 10%;
+			margin: 0;
+			justify-content: center;
+			align-items: center;
+		}
+
+		html, body {
+			margin: 0px;
+			height: 100%;
+		}
+	</style>
+	<script>
+		var line_num = 0
+		var variables = {
+			'xcode': 'X-Code 1.0 - Javascript Interpreter',
+			'xcode:v': '1.0',
+			'xcode:v:': 'OnePointZero',
+			'\\n': '\n'
+		}
+
+
+		function onDocLoad() {
+			document.getElementById('out').value = ''
+		}
+
+		function standardOutput(out) {
+			document.getElementById('out').value = document.getElementById('out').value + out
+		}
+
+		function exception(type) {
+			standardOutput('\nSCRIPT|EXCEPTION OCCURED:\n')
+			standardOutput('Line: '+line_num+' | Type: '+type)
+		}
+
+		function saycodeToStringType(str) {
+			var format_output = ''
+			var del_spaces = true
+			for (x in str) {
+				if (del_spaces === true && str[x] == ' ') {
+					continue
+				}
+				else {
+					del_spaces = false
+					format_output = format_output+str[x]
+				}
+			}
+
+			if (format_output.includes("'")) {
+				var quoteless = ''
+				for (x in format_output) {
+					if (x == 0) {
+						continue
+					}
+					if (x == format_output.length-1) {
+						break
+					}
+					quoteless = quoteless+format_output[x]
+				}
+				return quoteless+'\n'
+			}
+			else {
+				if (variables[format_output] == undefined) {
+					exception('VariableNotDefined')
+					return ''
+				}
+				return variables[format_output]
+			}
+		}
+
+		function setVarToValue(variable_name, value) {
+			value = saycodeToStringType(value)
+			variables[variable_name] = value
+		}
+
+		function runXcodeScript() {
+			line_num = 0
+			document.getElementById('out').value = ''
+			var code = document.getElementById('in').value
+
+			var slashen = code.split('\n')
+			for (x in slashen) {
+				line_num = line_num+1
+				if (slashen[x].split(':')[0] == 'say') {
+					var format = ''
+					for (splitty in slashen[x].split(':')) {
+						if (splitty != 0) {
+							format = format+slashen[x].split(':')[splitty]
+							if (splitty < slashen[x].split(':').length-1) {
+								format = format+':'
+							}
+						}
+					}
+					standardOutput(saycodeToStringType(format))
+				}
+
+				else if (slashen[x].split(':')[0] == 'var') {
+					if (slashen[x].split(':')[1] == 'set') {
+						var format = ''
+						for (splitty in slashen[x].split(':')) {
+							if (splitty > 2) {
+								format = format+slashen[x].split(':')[splitty]
+								if (splitty < slashen[x].split(':').length-1) {
+									format = format+':'
+								}
+							}
+						}
+						setVarToValue(slashen[x].split(':')[2], format)
+					}
+				}
+
+				else {
+					exception('CommandNotDefined')
+				}
+			}
+		}
+	</script>
+</head>
+<body onload='onDocLoad()'>
+	<div>
+		<textarea id='out' readonly placeholder='X-Code On-Javascript Terminal 1.0
+Type Inside the Editor and Run the Script to get an output' resizable='false'></textarea>
+		<textarea id='in' spellcheck='false' placeholder='Enter your code here, and press "Run Script" to run your X-Code project!' autofocus resizable='false'></textarea>
+		<section>
+			<button onclick='runXcodeScript()'>Run Script ▶</button>
+		</section>
+	</div>
+</body>
+</html>
