@@ -18,11 +18,15 @@
 
 		section {
 			display: flex;
-			padding: 0;
 			height: 10%;
-			margin: 0;
 			justify-content: center;
 			align-items: center;
+			flex-direction: row;
+		}
+
+		button {
+			padding: 0px 10px;
+			margin: 0px 10px;
 		}
 
 		html, body {
@@ -31,6 +35,10 @@
 		}
 	</style>
 	<script>
+		function back() {
+			window.location.href = ".."
+		}
+
 		var line_num = 0
 		var variables = {
 			'xcode': 'X-Code 1.0 - Javascript Interpreter',
@@ -143,6 +151,7 @@ Type Inside the Editor and Run the Script to get an output' resizable='false'></
 		<textarea id='in' spellcheck='false' placeholder='Enter your code here, and press "Run Script" to run your X-Code project!' autofocus resizable='false'></textarea>
 		<section>
 			<button onclick='runXcodeScript()'>Run Script ▶</button>
+			<button onclick='back()'>Back ...</button>
 		</section>
 	</div>
 </body>
