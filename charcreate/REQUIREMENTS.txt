@@ -1,0 +1,4 @@
+Requirements for CharCreate:
+    - pillow
+    - tkinter
+    - LiveLibre (must be in "LiveLibre" folder, also should be included by default)

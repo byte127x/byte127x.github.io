@@ -12,7 +12,76 @@
 		}
 
 		body {
-			padding: 8px;
+			margin: 4px;
+		}
+
+		nav {
+			margin-bottom: 8px;
+			position: sticky;
+			top: 0px;
+			background: white;
+			padding: 4px;
+		}
+
+		h2 {
+			text-align: center;
+		}
+
+		section {
+			display: flex;
+			flex-direction: column;
+			background: rgba(0, 0, 0, 0.45);
+			cursor: auto;
+		}
+
+		section div b {
+			font-size: 1.8rem;
+			display: block;
+			text-align: center;
+			width: 100%;
+		}
+
+		section div ul {
+			text-align: left;
+			font-size: 1.5rem;
+			text-decoration: none;
+			list-style: none;
+			margin-left: 5px;
+		}
+
+		section img {
+			display: block;
+		}
+
+		.infographic {
+			align-items: stretch;
+		}
+
+		.infographic div b {
+			background: rgba(0, 0, 0, 0.1);]
+		}
+
+		.much-more {
+			margin: 10px 0px;
+		}
+
+		.version center {
+			margin-top: 15px;
+		}
+
+		.version ul li {
+			margin-bottom: 4px;
+		}
+
+		.version ul li img {
+			width: 100%;
+			max-width: 200px;
+		}
+
+		@media only screen and (min-width: 860px) {
+			.infographic {
+				flex-direction: row;
+			}
 		}
 	</style>
 </head>
@@ -21,5 +90,42 @@
 		<h1>CharCreate</h1>
 		<a href='../livelibre.html'>Back to LiveLibre</a>
 	</nav>
+	<section class='infographic'>
+		<img src='../img/python_9TiB5XXjDb.png'>
+		<div>
+			<b>Your New Favorite Character Creator</b>
+			<ul>
+				<li>- 6 Different Hair Styles</li>
+				<li>- 5 Face Types</li>
+				<li>- A literal Rainbow Shirt</li>
+				<li class='much-more'>And Much More ...</li>
+			</ul>
+		</div>
+	</section><br>
+	<h2><u>Downloads</u></h2><br>
+	<section class='download-cont'>
+		<div class='version'>
+			<b>0.1.0 (Newest!)</b>
+			<center>
+				<ul>
+					<li>
+						<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Unofficial_Windows_logo_variant_-_2002%E2%80%932012_%28Multicolored%29.svg/1161px-Unofficial_Windows_logo_variant_-_2002%E2%80%932012_%28Multicolored%29.svg.png'>
+						<a href='CharCreate 0.1.0 (Winx64).zip'>- Windows (x64)</a>
+					</li>
+					<li>
+						<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Sample_code_icon.svg/2048px-Sample_code_icon.svg.png'>
+						<a href='CharCreate 0.1.0 (Source Code).zip'>- Source Code</a>
+					</li>
+				</ul>
+			</center>
+		</div>
+	</section>
 </body>
-</html>
+<script>
+	var imgr = document.getElementsByTagName('img')
+	for (let x in imgr) {
+		imgr[x].style.cursor = 'pointer'
+		imgr[x].onclick = function() {imgr[x].requestFullscreen()}
+	}
+</script>
+</html>	
