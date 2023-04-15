@@ -1,0 +1,44 @@
+body {
+  font-family: "Courier";
+}
+
+section img {
+	width: 100%;
+	aspect-ratio: 16/9;
+	object-fit: cover;
+	object-position: bottom;
+}
+
+section a {
+	margin: 10px;
+	text-align: center;
+}
+
+section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 2rem;
+	cursor: pointer;
+}
+
+section span {
+	font-size: 1.4rem;
+	margin-bottom: 10px;
+}
+
+nav {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+nav h1 {
+	margin-right: auto;
+}
+
+.section-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+	grid-gap: 9px;
+}
