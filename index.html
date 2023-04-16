@@ -9,11 +9,7 @@
 <body>
 	<h1>byte127x's list of cool websites 👍</h1>
 	<h3>Owned by byte127x</h3>
-	<div class='section-container'>
-		<section>
-			<img src='img/CDPROG.png'>
-			<a href=https://github.com/byte127x/game_hub/blob/master/GameHub%20Installer%20(Build%20M21-20).EXE?raw=true>Weird Program</a>
-		</section>
+	<!--<div class='section-container'>
 		<section>
 			<img src='img/GAMEY.png'>
 			<a href=Games/index.html>Games</a>
@@ -42,7 +38,63 @@
 			<img src='img/JSFIDDLE.png'>
 			<a href='playgrounds.html'>JS Fiddle Playgrounds</a>
 		</section>
-	</div>
+	</div>-->
+
+	<section aria-label='Options'>
+		<div class="carousel" data-carosuel>
+			<button class="caro-btn prev" data-bb='<'>&larr;</button>
+			<button class="caro-btn next" data-bb='>'>&rarr;</button>
+			<ul data-slides>
+				<li class="slide" data-active>
+					<img src="img/EPCG2.png" alt="EPCG2 Media">
+					<div class="caro-label"><span>
+						EPCG2 Media<br>
+						<a href="epcg2/index.html">Go</a>
+					</span></div>
+				</li>
+
+				<li class="slide">
+					<img src="img/STONKSCOW.png" alt="Stonks Cow Port">
+					<div class="caro-label"><span>
+						Stonks Cow Port<br>
+						<a href="stonkscow-port/index.html">Go</a>
+					</span></div>
+				</li>
+
+				<li class="slide">
+					<img src="img/LIVELIBRE.png" alt="JS Fiddle Playgrounds">
+					<div class="caro-label"><span>
+						Live Libre Apps<br>
+						<a href="livelibre.html">Go</a>
+					</span></div>
+				</li>
+
+				<li class="slide">
+					<img src="img/JSFIDDLE.png" alt="JS Fiddle Playgrounds">
+					<div class="caro-label"><span>
+						JS Fiddle Playgrounds<br>
+						<a href="playgrounds.html">Go</a>
+					</span></div>
+				</li>
+
+				<li class="slide">
+					<img src="img/XCODE.png" alt="EPCG2 Media">
+					<div class="caro-label"><span>
+						X-Code (UNFINSHED)<br>
+						<a href="x-code.html">Go</a>
+					</span></div>
+				</li>
+
+				<li class="slide">
+					<img src="img/EPCG2WIKI.png" alt="JS Fiddle Playgrounds">
+					<div class="caro-label"><span>
+						EPCG2 Wiki (Unfinished)<br>
+						<a href="wiki/index.html">Go</a>
+					</span></div>
+				</li>
+			</ul>
+		</div>
+	</section>
 
 	<h3>Owned by others</h3>
 	<ul>
@@ -53,4 +105,32 @@
 		<li><a href='https://github.com/byte127x/'>Github</li>
 	</ul>
 </body>
+<script>
+	const buttons = document.querySelectorAll('[data-bb]')
+	buttons.forEach(button => {
+		button.addEventListener("click", () => {
+			var offset = 0
+			if (button.dataset.bb === '>') {
+				offset = 1
+			}
+			else {
+				offset = -1
+			}
+
+			const slides = button.closest('[data-carosuel]').querySelector('[data-slides]')
+			const activeSlide = slides.querySelector('[data-active]')
+			let newIdx = [...slides.children].indexOf(activeSlide) + offset
+
+			if (newIdx < 0) {
+				newIdx = slides.children.length-1
+			}
+			if (newIdx >= slides.children.length) {
+				newIdx = 0
+			}
+
+			slides.children[newIdx].dataset.active = true
+			delete activeSlide.dataset.active
+		})
+	})
+</script>
 </html>
