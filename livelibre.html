@@ -6,26 +6,60 @@
 	<title>LiveLibre</title>
 	<link rel='stylesheet' href='style.css'>
 	<style>
+		body {
+			text-align: center;
+		}
+
 		section img {
 			background-color: red;
 			width: 100%;
-			max-width: 400px;
+		}
+
+		section {
+			display: flex;
+			flex-direction: column;
+			font-size: 2vw;
+			cursor: pointer;
+			filter: blur(3px);
+			transition: filter 200ms ease, background 200ms ease;
+		}
+
+		section:hover {
+			background: rgba(0, 0, 0, 0.1);
+			filter: blur(0px);
+		}
+
+		.container {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+			grid-gap: 9px;
+		}
+
+		@media only screen and (max-width: 528px) {
+			section {
+				font-size: 1.75rem;
+			}
 		}
 	</style>
 </head>
 <body>
-	<center>
-		<h1>Live Libre Website</h1>
-		<section id='charcr'>
-			<img src='img/charcreate.png'>
-			<span>CharCreate (0.1.0)</span>
-		</section>
-		<a href='index.html'>Back</a>
-	</center>
+	<h1>Live Libre Website</h1>
+	<div class="container">
+		<a href="charcreate/index.html">
+			<section id='charcr'>
+				<img src='img/charcreate.png'>
+				<span>CharCreate (0.1.0)</span>
+			</section>
+		</a>
+		<a href="stickgame/index.html">
+			<section id='charcr'>
+				<img src='img/stickgame.png'>
+				<span>Stickmen - The Game (UNFINISHED)</span>
+			</section>
+		</a>
+	</div>
+	<a href='index.html'>Back</a>
 </body>
 <script>
-	charcr.onclick = function() {
-		document.location.href = 'charcreate/index.html'
-	}
 </script>
 </html>

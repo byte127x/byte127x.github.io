@@ -4,10 +4,16 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="gamemenu_style.css">
+	<title>Game Menu</title>
+	<style>
+		h3 > a {
+			margin-left: 3rem;
+		}
+	</style>
 </head>
 <body>
 	<h1>Games</h1>
-	<h3>Made by byte127x</h3>
+	<h3>Made by byte127x<a href="../index.html">Back ...</a></h3>
 	<div class='section-container'>
 		<section>
 			<img src="screenshot/difplatauto.png">
@@ -31,4 +37,11 @@
 		</section>
 	</div>
 </body>
+<script>
+	var imgr = document.getElementsByTagName('img')
+	for (let x in imgr) {
+		imgr[x].style.cursor = 'pointer'
+		imgr[x].onclick = function() {imgr[x].requestFullscreen()}
+	}
+</script> 
 </html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Stickmen - EPCG2 Wiki</title>
+	<style>
+		body {
+			font-family: sans-serif;
+		}
+
+		nav {
+			display: grid;
+			align-items: center;
+			grid-template-columns: 100px 40px 40px;
+		}
+
+		nav > a {
+			margin-left: 15px;
+			text-decoration: none;
+		}
+
+		p {
+			padding-right: 500px;
+		}
+
+		.season {
+			display: inline-grid;
+			border-radius: 10px;
+			overflow: hidden;
+			float: right;
+		}
+
+		.season > div {
+			background: rgba(0, 0, 0, 0.3);
+			display: inline-grid;
+			grid-template-areas:
+				'span1 thumb'
+				'span2 thumb'
+				'span3 thumb';
+			padding: 5px;
+		}
+
+		.season > div > span {
+			display: block;
+			font-size: 1.2rem;
+		}
+
+		.season > div > span > b {
+			font-size: 1.7rem;
+		}
+
+		.season > div > img {
+			grid-area: thumb;
+			margin-left: 30px;
+			max-height: 100px;
+		}
+
+		@media only screen and (max-width: 920px) {
+			.season {
+				float: none;
+			}
+
+			p {
+				padding-right: 0;
+			}
+		}
+	</style>
+</head>
+<body>
+	<nav>
+		<h1>Stickmen</h1>
+		<a href="index.html">Back</a>
+	</nav>
+	<hr>
+	<h1>EPCG2 Wiki: Stickmen</h1>
+	<hr>
+	<section class='season'>
+		<div>
+			<span style='grid-area: span1;'><b>Episode 1: The Apple</b></span><br>
+			<span style='grid-area: span2;'>Released: 09/05/2022</span>
+			<span style='grid-area: span3;'>Views: 98</span>
+			<img src="https://img.youtube.com/vi/6JPoLkv4wsc/maxresdefault.jpg" alt="Episode01Thumb">
+		</div>
+		<div>
+			<span style='grid-area: span1;'><b>Episode 2: The Orange</b></span><br>
+			<span style='grid-area: span2;'>Released: 10/05/2022</span>
+			<span style='grid-area: span3;'>Views: 39</span>
+			<img src="https://img.youtube.com/vi/K_H07YVdqFk/maxresdefault.jpg" alt="Episode02Thumb">
+		</div>
+		<div>
+			<span style='grid-area: span1;'><b>Episode 3: Family Reunion</b></span><br>
+			<span style='grid-area: span2;'>Released: 11/05/2022</span>
+			<span style='grid-area: span3;'>Views: 43</span>
+			<img src="https://img.youtube.com/vi/-ar0H28seyQ/maxresdefault.jpg" alt="Episode03Thumb">
+		</div>
+		<div>
+			<span style='grid-area: span1;'><b>Episode 4: Family Broken</b></span><br>
+			<span style='grid-area: span2;'>Released: 12/05/2022</span>
+			<span style='grid-area: span3;'>Views: 32</span>
+			<img src="https://img.youtube.com/vi/QTFdTEK-UAc/maxresdefault.jpg" alt="Episode04Thumb">
+		</div>
+	</section>
+	<p>Stickmen is a series created by EPCG2 Media in 2022. It currently has 4 episodes and one season and the most viewed episode (Episode 1) has 98 views.<br>Episode 5 is reported to come out sometime in May or June, but the date is still TBD.</p>
+	<p>Last Updated: 4/16/2023</p>
+</body>
+</html>
