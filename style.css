@@ -3,8 +3,10 @@
 }
 
 body {
-  font-family: "Courier";
-  margin: 0;
+  	font-family: "Courier";
+ 	margin: 0;
+	background: linear-gradient(90deg, #aaffaa, #aaaaff);
+
 }
 
 h1, h3 {
