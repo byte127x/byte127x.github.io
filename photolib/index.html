@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>PhotoLib</title>
+	<link rel="stylesheet" href="../style.css">
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		nav {
+			margin-bottom: 8px;
+			position: sticky;
+			top: 0px;
+			background: white;
+			padding: 4px;
+		}
+
+		main {
+			margin: 5px;
+		}
+
+		article {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+			grid-gap: 5px;
+			margin: 5px;
+		}
+
+		h2 {
+			margin-bottom: 10px;
+		}
+
+		h4 {
+			font-size: 18px;
+			font-weight: 500;
+		}
+
+		.image-card {
+			width: 100%;
+		}
+
+		.image-card > img {
+			width: 100%;
+		}
+	</style>
+	<script>
+		function view(url) {
+			window.open(url)
+		}
+	</script>
+</head>
+<body>
+	<nav>
+		<h1>PhotoLib</h1>
+		<a href='../livelibre.html'>Back to LiveLibre</a>
+	</nav>
+	<main>
+		<h2><u>Images</u></h2>
+		<p>Landscapes</p>
+		<article>
+			<div class='image-card'>
+				<img src="images/DesertLandscape.png" alt="Desert Landscape">
+				<h4>Desert/Mountain Landscape with Road</h4>
+				<a href="javascipt:void(0)" onclick='view("images/DesertLandscape.png")'>Download (4K/PNG)</a>
+			</div>
+			<div class='image-card'>
+				<img src="images/DesertLandscape2.png" alt="Desert Landscape">
+				<h4>Desert Landscape with Cacti</h4>
+				<a href="javascipt:void(0)" onclick='view("images/DesertLandscape2.png")'>Download (4K/PNG)</a>
+			</div>
+			</div>
+		</article>
+		<br><p>Graphics</p>
+		<article>
+			<div class='image-card'>
+				<img src="images/PurpleBlue Landscape.png" alt="PurpleBlue">
+				<h4>Purple Gradient</h4>
+				<a href="javascipt:void(0)" onclick='view("images/PurpleBlue Landscape.png")'>Download (720p/PNG)</a>
+			</div>
+			<div class='image-card'>
+				<img src="images/violencewarning.png" alt="PurpleBlue">
+				<h4>Violence Warning</h4>
+				<a href="javascipt:void(0)" onclick='view("images/violencewarning.png")'>Download (1080p/PNG)</a>
+			</div>
+			<div class='image-card'>
+				<img src="images/windows_7_BG.png" alt="PurpleBlue">
+				<h4>Windows 7 Rainbow Text</h4>
+				<a href="javascipt:void(0)" onclick='view("images/windows_7_BG.png")'>Download (1080p/PNG)</a>
+		</article>
+	</main>
+</body>
+</html>
