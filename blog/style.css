@@ -105,12 +105,15 @@ section > img {
 
 /* SongInfo Pages */
 .songinfo-article {
-	height: 100vh;
+	height: 100%;
 	position: relative;
 	border-radius: 15px;
 	display: grid;
 	grid-template-columns: 350px 350px;
-	grid-template-rows: 350px;
+	grid-template-rows: 350px 1fr;
+	grid-template-areas: 
+		'data image'
+		'lyr lyr';
 	justify-content: center;
 	padding: 15px;
 }
@@ -118,8 +121,23 @@ section > img {
 @media (max-width: 760px) {
 	.songinfo-article {
 		grid-template-columns: 350px;
-		grid-template-rows: 350px 350px;
+		grid-template-rows: 350px 350px 1fr;
+		grid-template-areas: 
+			'data'
+			'image'
+			'lyr';
 	}
+}
+
+.songinfo-info {grid-area: data;}
+.songinfo-lyrics {grid-area: lyr;}
+.songinfo-article > img {grid-area: image;}
+
+.songinfo-lyrics > code {
+	margin: 7px;
+	margin-left: 15px;
+	column-count: 2;
+	display: block;
 }
 
 .songinfo-article:before {
@@ -160,7 +178,7 @@ button {
 	background: rgba(0, 0, 0, 0.7);
 	border: none;
 	width: 90%;
-	font-size: 16px;
+	font-size: 15px;
 	padding: 5px;
 	color: #eee;
 	cursor: pointer;
@@ -176,11 +194,11 @@ button:hover {
 }
 
 button > img {
-	width: 20px;
+	width: 16px;
 	margin: 0px 5px;
 }
 
 /* SongInfo Images */
 .yousaygoodbye-img:before {
-	background-image: url(https://static.wikia.nocookie.net/ovsc/images/0/0b/SpecialThanks.jpg/revision/latest?cb=20180815134905);
+	background-image: url(https://byte127.github.io/img/SpecialThanks.webp);
 }
