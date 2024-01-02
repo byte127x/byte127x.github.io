@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@200;300;400;500&family=Lato:wght@300;400&family=Open+Sans:wght@300;400&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'IBM Plex Sans Condensed', sans-serif;
+}
+
+a {
+	text-decoration: none;
+}
+
+header {
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	grid-template-columns: 32px 1fr;
+	margin: 5px;
+}
+
+.backarrow {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.title {
+	display: inline-block;
+	margin-left: 10px;
+}
+
+h2 {
+	font-size: 22px;
+}
+
+#tagline {
+	margin-left: 48px;
+}
+
+article {
+	margin: 15px;
+	padding: 10px 15px;
+	background: rgba(0, 0, 0, 0.25);
+	border-radius: 15px;
+	overflow: none;
+	-moz-overflow: none;
+}
+
+section {
+	margin: 10px 0px;
+	display: grid;
+	background: rgba(0, 0, 0, 0.15);
+	border-radius: 15px;
+	overflow: none;
+	-moz-overflow: none;
+	padding: 5px;
+
+	grid-template-columns: 400px 2fr;
+	grid-template-rows: none;
+	grid-template-areas:
+		"image info"
+		"image data";
+}
+
+section > img {
+	border-radius: 15px;
+	grid-area: image;
+	width: 100%;
+	display: block;
+}
+
+.albuminfo {
+	grid-area: info;
+	display: block;
+	margin: 0px 10px;
+	position: relative;
+}
+
+.albuminfo > h2:nth-child(2) {
+	font-size: 27px;
+}
+
+.date {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+}
+
+.moreinfo {
+	display: block;
+	background: #4188d9;
+	padding: 10px;
+	width: 100px;
+	border-radius: 15px;
+	color: #ddd;
+	transition: all 300ms ease;
+}
+
+.moreinfo:hover {
+	background: #3cba96;
+	filter: blur(0px);
+	scale: 105%;
+}
+
+/* SongInfo Pages */
+.songinfo-article {
+	height: 100vh;
+	position: relative;
+	border-radius: 15px;
+	display: grid;
+	grid-template-columns: 350px 350px;
+	grid-template-rows: 350px;
+	justify-content: center;
+	padding: 15px;
+}
+
+@media (max-width: 760px) {
+	.songinfo-article {
+		grid-template-columns: 350px;
+		grid-template-rows: 350px 350px;
+	}
+}
+
+.songinfo-article:before {
+	content: '';
+	z-index: -1;
+	border-radius: 15px;
+	position: absolute;
+	top: 0; left: 0;
+	width: 100%; height: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	filter: blur(12px);
+}
+
+.songinfo-songtitle {
+	font-size: 28px;
+}
+
+.songinfo-article > div {
+	display: inline-block;
+}
+
+.songinfo-article > img {
+	width: 350px;
+	height: 1/1;
+}
+
+.songinfo-article > div > h2 {
+	font-weight: 400;
+	margin: 2px;
+}
+
+button {
+	display: flex;
+	margin: 10px 0;
+	margin-right: 0;
+	background: rgba(0, 0, 0, 0.7);
+	border: none;
+	width: 90%;
+	font-size: 16px;
+	padding: 5px;
+	color: #eee;
+	cursor: pointer;
+	border-radius: 10px;
+	align-items: center;
+	justify-content: center;
+	transition: all 300ms ease;
+}
+
+button:hover {
+	background: rgba(0, 0, 0, 0.9);
+	scale: 105%;
+}
+
+button > img {
+	width: 20px;
+	margin: 0px 5px;
+}
+
+/* SongInfo Images */
+.yousaygoodbye-img:before {
+	background-image: url(https://static.wikia.nocookie.net/ovsc/images/0/0b/SpecialThanks.jpg/revision/latest?cb=20180815134905);
+}

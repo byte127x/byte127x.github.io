@@ -3,10 +3,35 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>GL32's Blog</title>
+	<title>Song of the Week</title>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<h1>My Blog</h1>
-	<p>Coming Soon ...</p>
+	<header>
+		<a href="../index.html" class='backarrow'>
+			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Back_Arrow.svg/32px-Back_Arrow.svg.png" alt="back arrow">
+		</a>
+		<h1 class='title'>Song of the Week</h1>
+	</header>
+	<p id='tagline'>works without javascript!</p>
+	<article>
+		<i>Total Articles: 1</i>
+		<section>
+			<img src="../img/SpecialThanks - Seven Colors.jpg" alt="Album Art - SEVEN COLORS">
+			<div class="albuminfo">
+				<span class='date'>📅 Jan. 1st, 2024</span>
+				<h2>You Say GOODBYE</h2>
+				<h2>🎙️ SpecialThanks</h2>
+				<h2>💿 SEVEN COLORS</h2><br>
+				<p>FIRST SONG OF THE FIRST WEEK OF THE NEW YEAR, WOOHOO! From SpecialThanks' debut album, this song is about the experience of standing on a stage and doing a concert ... i think. Although I do enjoy it's pop-rock energy, I still find myself enoying the more punk songs off the album more, but it's still good!<br>Rating: 7.5 / 10</p><br>
+				<a href="info/yousaygoodbye.html" class="moreinfo">More Info ...</a>
+			</div>
+		</section>
+	</article>
 </body>
+<script>
+	taglines = ['the worst blog site ever made!', 'trashy guy reviews trashy music!', 'only punk and nothing else!', 'who\'s even viewing this!']
+
+	document.getElementById('tagline').innerHTML = taglines[Math.floor(Math.random() * taglines.length)]
+</script>
 </html>
