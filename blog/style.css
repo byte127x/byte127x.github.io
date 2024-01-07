@@ -47,14 +47,33 @@ article {
 	-moz-overflow: none;
 }
 
+.rating {
+	margin-top: 7px;
+	margin-bottom: 15px;
+	display: block;
+}
+
+.songs {
+	margin: 7px 0px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 10px;
+}
+
+@media (max-width: 1700px) {
+	.songs {
+		grid-template-columns: 1fr;
+	}
+}
+
 section {
-	margin: 10px 0px;
+	margin: 0px 0px;
 	display: grid;
 	background: rgba(0, 0, 0, 0.15);
 	border-radius: 15px;
 	overflow: none;
 	-moz-overflow: none;
-	padding: 5px;
+	padding: 10px;
 
 	grid-template-columns: 400px 2fr;
 	grid-template-rows: none;
@@ -200,5 +219,9 @@ button > img {
 
 /* SongInfo Images */
 .yousaygoodbye-img:before {
-	background-image: url(https://byte127.github.io/img/SpecialThanks.webp);
+	background-image: url(https://byte127x.github.io/img/SpecialThanks.webp);
+}
+
+.failure-img:before {
+	background-image: url(https://byte127x.github.io/img/BLOGGY.png);
 }
