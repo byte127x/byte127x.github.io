@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TETO SHRINE!!!</title>
+	<link rel="stylesheet" href="../style.css">
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			margin: 0px;
+			padding: 0px;
+		}
+
+		h1 {
+			background: rgba(0, 0, 0, 0.15);
+			width: calc(100% - 20px);
+			padding: 10px;
+			border-radius: 0 0 10px 10px;
+		}
+
+		#collage {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+			grid-gap: 10px;
+			margin: 10px;
+		}
+
+		.image {
+			width: 100%;
+			display: grid;
+			grid-template-rows: 500px 55px;
+			align-items: center;
+			border-radius: 20px;
+			overflow: hidden;
+		}
+
+		.image-imgcontainer {
+			overflow: hidden;
+			width: 100%;
+			height: 100%;
+			display: flex;
+		}
+
+		.image-img {
+			width: 100%;
+			height: 100%;
+			background-size: cover;
+			background-position-x: center;
+			background-position-y: top;
+			transition: scale 200ms ease;
+			z-index: 1;
+		}
+
+		.image-img:hover {
+			/*background-size: 115%;*/
+			scale: 110%;
+			cursor: pointer;
+		}
+
+		.image > span {
+			background: rgba(0, 0, 0, 0.15);
+			width: 100%;
+			height: 100%;
+			display: block;
+			font-weight: 600;
+			font-size: 30px;
+			text-align: center;
+			padding: 10px;
+			z-index: 2;
+		}
+
+		.back-btn {
+			position: fixed;
+			bottom: 5px;
+			right: 5px;
+			background: #558ce6aa;
+			padding: 7px;
+			border-radius: 10px;
+			transition: background 300ms ease;
+			z-index: 4;
+		}
+
+		.back-btn:hover {
+			background: #558ce6ff;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		h4 {
+			font-size: 20px;
+			color: rgba(0, 0, 0, 0.7);
+			display: inline-block;
+		}
+
+		dialog {
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			z-index: 5;
+			padding: 10px;
+			transform: translate(-50%, -50%);
+			border: 3px #000 solid;
+			border-radius: 10px;
+		}
+
+		dialog::backdrop {
+			background: linear-gradient(45deg, cyan, magenta);
+			opacity: 0.85;
+		}
+
+		dialog > p {
+			font-size: 22px;
+		}
+
+		dialog > form > button {
+			padding: 5px 10px;
+			border-radius: 5px;
+			border: 1.5px #222 solid;
+			background: rgba(0, 0, 0, 0.15);
+			cursor: pointer;
+			transition: all 200ms ease;
+		}
+
+		dialog > form > button:hover {
+			background: rgba(0, 0, 0, 0.25);
+		}
+	</style>
+</head>
+<body>
+	<dialog>
+		<p>Send suggestions to "gl32" on Discord <br><a style='font-size: 18px;' href="https://discord.gg/kasaneteto">or join an epic server ...</a></p><br>
+		<form method='dialog'>
+			<button>Ok</button>
+		</form>
+	</dialog>
+	<h1>#1 TETO SHRINE!!!! (epic teto images)<br>
+		<a href="javascript:void(0)" onclick='dialog.showModal()'><h4>Suggest an Image</h4></a>
+	</h1>
+	<section id="collage">
+	</section>
+	<a href="index.html" class="back-btn">Back</a>
+</body>
+<script>
+	/* Inject Images */
+	const images = [
+		['Teto Supremacy', 'images/teto/TETO SUPREMACY!.png'],
+		['THE TETO IS SQUISH!!!!', 'https://media.discordapp.net/attachments/1214073489389256758/1214363069606535259/512702b66df40394cbdd14f8eadc237c.png?ex=65f8d6bd&is=65e661bd&hm=53b186e215ab11f123d6da3d3f0ab5b43b8cf6d7045e16f07c9ed358a04e5d74&=&quality=lossless'],
+		['totally teto fr no cap', 'images/teto/red len.png'],
+		['world\'s best utauloid', 'images/teto/kasane teto.webp'],
+		['fukkireta', 'images/teto/2d3vl9.gif'],
+		['you dun goof\'d up', 'images/teto/tetoangry.png'],
+		['Teto x Bread', 'images/teto/teto x bread.png'],
+		['RUN TETO RUN!', 'images/teto/runteto.gif'],
+		['thousand baguette stare', 'https://media.discordapp.net/attachments/522088899200286731/1214043274424361043/image.png?ex=65f7ace8&is=65e537e8&hm=a5ce5244f3f8ded940e7524d97eba858b3433cb60c3f169164f25e62dd0ee153&=&quality=lossless']
+	]
+	const collage = document.getElementById('collage')
+	const dialog = document.getElementsByTagName('dialog')[0]
+
+	for (id in images) {
+		/* Injects Single Image */
+		var head = document.createElement('div')
+		head.classList.add('image')
+
+		var image_container = document.createElement('section')
+		image_container.classList.add('image-imgcontainer')
+
+		var image = document.createElement('a')
+		image.href = images[id][1]
+		image.style.backgroundImage = `url("${images[id][1]}")`
+		image.classList.add('image-img')
+		var caption = document.createElement('span')
+		caption.innerHTML = images[id][0]
+
+		image_container.appendChild(image)
+		head.appendChild(image_container)
+		head.appendChild(caption)
+		collage.appendChild(head)
+	}
+</script>
+</html>
