@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Teto DVD</title>
+	<style>
+		body {
+			background: black;
+			overflow: hidden;
+		}
+
+		#teto {
+			height: 100px;
+			width: 100px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background-position: center;
+			background-size: contain;
+		}
+
+		#teto::before {
+			content: "";
+			position: absolute;
+			height: 100px;
+			width: 100%;
+			top: 0;
+			left: 0;
+			background-image: inherit;
+			background-position: center;
+			background-size: contain;
+			z-index: -1;
+			filter: blur(40px);
+			opacity: 0.5;
+		}
+
+		#source {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="teto"></div>
+</body>
+<script>
+	const getMeta = (url, cb) => {
+	  const img = new Image();
+	  img.onload = () => cb(null, img);
+	  img.onerror = (err) => cb(err);
+	  img.src = url;
+	};
+
+	// TETO DVD BOUNCE
+	var images = ['photolib/images/teto/teto x bread.png', 'photolib/images/teto/TETO SUPREMACY!.png', 'photolib/images/teto/wtf.png', 'photolib/images/teto/2d3vl9.gif']
+	var imageHeight = 100
+	var imageWidth = 75
+
+	var xMultiplier = 1
+	var yMultiplier = 1
+	var windowWidth = window.innerWidth
+	var windowHeight = window.innerHeight
+	var x = 0
+	var y = 0
+
+	const img = document.querySelector("#teto")
+	const source = document.querySelector("#source")
+
+	function update() {
+		x = x+(xMultiplier)
+		y = y+(yMultiplier)
+		img.style.left = `${x}px`
+		img.style.top = `${y}px`
+		if (x > windowWidth-imageWidth) {collide();xMultiplier = -xMultiplier;x = windowWidth-(imageWidth+1);}
+		if (y > windowHeight-imageHeight) {collide();yMultiplier = -yMultiplier;y = windowHeight-(imageHeight+1);}
+		if (x < 0) {collide();xMultiplier = -xMultiplier;x = 1;}
+		if (y < 0) {collide();yMultiplier = -yMultiplier;y = 1;}
+		window.requestAnimationFrame(update)
+	}
+
+	function resize() {
+		windowWidth = window.innerWidth
+		windowHeight = window.innerHeight
+	}
+
+	function collide() {
+		getMeta(images[Math.floor(Math.random() * images.length)], (err, source) => {
+			let scaleFactor = source.naturalHeight/100
+			imageHeight = source.naturalHeight/scaleFactor
+			imageWidth = source.naturalWidth/scaleFactor
+
+			img.style.width = `${imageWidth}px`
+			img.style.backgroundImage = `url(${source.src})`
+		});
+	}
+
+	window.onresize = resize
+	collide()
+	update()
+</script>
+</html>
