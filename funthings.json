@@ -1,0 +1,86 @@
+my_projects = [
+	{
+		"link": "https://byte127x.github.io/epcg2",
+		"title": "EPCG2 Media",
+		"image": "https://byte127x.github.io/img/EPCG2.png",
+		"description": "WARNING: WEBSITE IS NOT FINISHED<br>A lil' youtube channel that I have, sometimes I post videos",
+		"tags": ["Videos", "EPCG2"]
+	}, {
+		"link": "https://byte127x.github.io/kasane-fishing",
+		"title": "Kasane Fishing",
+		"image": "https://byte127x.github.io/kasane-fishing/gameplay.png",
+		"description": "The world's best fishing game ... that has Kasane Teto (hopefully better than Project SEKAI)",
+		"tags": ["Games", "Unity/C#", "EPCG2"]
+	}, {
+		"link": "https://byte127x.github.io/kasane-fishing",
+		"title": "Photolib",
+		"image": "https://byte127x.github.io/img/PHOTOLIB.png",
+		"description": "Collection of some images and stuff. I guess.",
+		"tags": ["HTML/CSS"]
+	}, {
+		"link": "https://flygplaanee.carrd.co/",
+		"title": "Flyplaanee Airlines",
+		"image": "https://flygplaanee.carrd.co/assets/images/image02.jpg?v=17ee86f3",
+		"description": "Some airline thing that a bunch of online peeps came up with. I was a flight attendant!",
+		"tags": ["Discord"]
+	}, {
+		"link": "https://byte127x.github.io/stickgame/index.html",
+		"title": "Stickmen: The Game",
+		"image": "https://byte127x.github.io/img/stickgame.png",
+		"description": "A visual novel game meant to be the stickmen webseries ... but with more choices!",
+		"tags": ["Games", "Python"]
+	}, {
+		"link": "https://www.roblox.com/games/7107403438/Water-World-2022",
+		"title": "Water World Park",
+		"image": "https://tr.rbxcdn.com/add32c322365bbf92bf3516f130efa52/150/150/Image/Webp",
+		"description": "A roblox waterpark game I made a while ago, which used a bunch of free models for a water park experience!",
+		"tags": ["Cancelled/Unfinished", "Games", "Roblox"]
+	}, {
+		"link": "https://byte127x.github.io/charcreate/index.html",
+		"title": "CharCreate",
+		"image": "https://byte127x.github.io/img/charcreate.png",
+		"description": "A stickman clothing mix-and-match adventure! or something idk",
+		"tags": ["Desktop App", "Python", "EPCG2"]
+	}, {
+		"link": "https://byte127x.github.io/stonkscow-port/index.html",
+		"title": "Stonks Cow",
+		"image": "https://byte127x.github.io/img/STONKSCOW.png",
+		"description": "A 'meme' idea a friend came up with in 7th grade. Put it in quotes because its not really a meme, but it has an entire website!",
+		"tags": ["HTML/CSS", "EPCG2"]
+	}, {
+		"link": "https://www.roblox.com/games/14161988785/The-Driving-Game",
+		"title": "The Driving Game",
+		"image": "img/DRIVINGGAME.png",
+		"description": "Imagine a game ... where you can drive. well, this is basically it!",
+		"tags": ["Games", "Roblox"]
+	}, {
+		"link": "https://www.roblox.com/games/10952426269/Alpine-Slides-to-DenisDaily",
+		"title": "Alpine Slides to DenisDaily",
+		"image": "https://tr.rbxcdn.com/79be86cedef57fe6bb30771534c2016e/150/150/Image/Webp",
+		"description": "A game where you alpine slide to DenisDaily! Inspired off of Alpine Slides to Telamon",
+		"tags": ["Games", "Roblox"]
+	}, {
+		"link": "https://pmovies-epcg2.wixsite.com/my-site-2/quizzy-app",
+		"title": "Quizzy",
+		"image": "img/QUIZZY QUERY.png",
+		"description": "A customizable quiz dialog thingy! It's something like a test but barebones!",
+		"tags": ["Cancelled/Unfinished", "Python", "Desktop App"]
+	}, {
+		"link": "https://byte127x.github.io/blog/index.html",
+		"title": "Song of the Week",
+		"image": "https://byte127x.github.io/img/BLOGGY.png",
+		"description": "Website where I reviewed various songs. I only made 2 posts before forgetting about and stopping it",
+		"tags": ["Cancelled/Unfinished", "HTML/CSS"]
+	},
+]
+
+other_projects = [
+	{
+		"link": "https://byte127x.github.io/Games/ag3d-port.html",
+		"author": "Cary Huang",
+		"title": "GTTTATINT 3D",
+		"image": "https://byte127x.github.io/Games/screenshot/gtttatint3d.png",
+		"description": "A whole new 3D game based on the original GTTTATINT! platformer! Good ol' Sticky is now crossing a dangerously deteriorating bridge! Unfortunately, he can't swim! It's your job to keep that little guy from drowning!",
+		"tags": ["Games", "Adobe Flash"]
+	}
+]
