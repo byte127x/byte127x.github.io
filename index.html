@@ -3,174 +3,485 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="style.css">
-	<title>byte127x's list of cool websites 👍</title>
+	<script type="text/javascript" src="funthings.json"></script>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Chocolate+Classical+Sans&display=swap');
+
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: "Chocolate Classical Sans", sans-serif;
+			color: white;
+		}
+
+		body {
+			background: #080809;
+		}
+
+		h2 {
+			font-size: 26px;
+		}
+
+		img {
+			cursor: pointer;
+		}
+
+		.navbar {
+			padding: 25px;
+			padding-bottom: 0;
+			z-index: 5;
+		}
+
+		.navbar > ul {
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			background: #1d1b1e;
+			border-radius: 15px;
+			padding: 15px 10px;
+		}
+
+		.navbar > ul > li {
+			display: inline-block;
+			position: relative;
+			margin: 0 10px;
+		}
+
+		.navbar-link {
+			text-decoration: none;
+			color: #eee;
+			transition: all 200ms ease;
+		}
+
+		.navbar-link::before {
+			content: attr(text);
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			filter: blur(8px);
+			opacity: 0;
+			transition: all 200ms ease;
+		}
+
+		.navbar-link:hover {
+			color: #fff;
+		}
+
+		.navbar-link:hover::before {
+			opacity: 1;
+		}
+
+		.navbar > ul > li:nth-child(2) {
+			margin: auto;
+		}
+
+
+		.smoltext {
+			font-size: 12px;
+			font-weight: 400;
+		}
+
+
+		.mainpage {
+			background-image: linear-gradient(45deg, #0d428e, #9e3f84);
+			padding: 15px 20px;
+			border-radius: 15px;
+		}
+
+		.mainpage-background {
+			position: relative;
+			padding: 25px;
+			z-index: 1;
+		}
+
+		.mainpage-background::before {
+			content: "";
+			z-index: -1;
+			top: 25px;
+			left: 25px;
+			width: calc(100% - 50px);
+			height: calc(100% - 50px);
+			position: absolute;
+			background-image: linear-gradient(45deg, #0d428e, #9e3f84);
+			filter: blur(25px);
+			opacity: 0.7;
+		}
+
+		/* Project Pages */
+		.projectlist {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(570px, 1fr));
+			grid-gap: 10px;
+			margin: 10px 0;
+		}
+
+		.project {
+			background: rgba(0, 0, 0, 0.5);
+			padding: 10px;
+			width: 100%;
+			border-radius: 15px;
+			display: grid;
+			grid-template-columns: 2fr 3fr;
+			height: 200px;
+		}
+
+		.project > img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: 10px;
+		}
+
+		.project > div {
+			margin-left: 10px;
+			display: grid;
+			grid-template-rows: 40px 1fr 20px;
+		}
+
+		.project > div > a {
+			font-size: 25px;
+		}
+
+		.project > div > p {
+			font-size: 14px;
+		}
+
+		.project-tags {
+			font-size: 14px;
+		}
+
+		.project-tags a {
+			position: relative;
+			border-radius: 10px;
+			padding: 2px 5px;
+			text-decoration: none;
+			cursor: pointer;
+			margin-right: 5px;
+			z-index: 5;
+			display: inline-block;
+		}
+
+		.project-tags a:hover::before {
+			opacity: 1;
+		}
+
+		.project-tags a::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: green;
+			border-radius: 10px;
+			filter: blur(10px);
+			background: inherit;
+			z-index: -2;
+			opacity: 0;
+			transition: opacity 250ms ease;
+		}
+
+		.project-tags a::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border-radius: 10px;
+			z-index: -1;
+			background: inherit;
+		}
+
+		/* Color Styles */
+		.green {background: green;}
+		.purple {background: purple;}
+		.red {background: red;}
+		.orange {background: orange;}
+		.pink {background: #e06d8e;}
+		.lightblue {background: #5aa8c9;}
+		.lightgreen {background: #8dba7e;}
+		.yellow {background: #d1c849;}
+		.discordian {background: #5662f6;}
+		.epcg2 {background: linear-gradient(45deg, #fcfd94, #3eb524);}
+		.silverfish {background: linear-gradient(-45deg, #555, #bbb);}
+
+		/* Dialogs */
+		@keyframes tagFadeIn {
+			from {
+				display: flex;
+				opacity: 0;
+				backdrop-filter: blur(0px);
+				z-index: 10;
+			}
+			to {
+				backdrop-filter: blur(8px);
+				opacity: 1;
+				z-index: 10;
+			}
+		}
+
+		@keyframes tagFadeOut {
+			from {
+				z-index: 10;
+				display: flex;
+				opacity: 1;
+				backdrop-filter: blur(8px);
+			}
+			to {
+				backdrop-filter: blur(0px);
+				opacity: 0;
+			}
+		}
+
+		.tag-dialog, .image-dialog {
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			width: 100vw;
+			height: 100vh;
+			background: rgba(0, 0, 0, 0.5);
+			backdrop-filter: blur(8px);
+			opacity: 0;
+			z-index: -10;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.tag-dialog-fadein {
+			z-index: 10;
+			animation: tagFadeIn 500ms ease;
+			opacity: 1;
+		}
+
+		.tag-dialog-fadeout {
+			animation: tagFadeOut 500ms ease;
+		}
+
+		.tag-dialog > section {
+			display: grid;
+			grid-template-areas:
+				'title title'
+				'main aside';
+			grid-template-columns: 1fr 1fr;
+			width: 750px;
+		}
+
+		.image-dialog > section {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.image-dialog > section, .tag-dialog > section {
+			position: relative;
+			background: rgba(0, 0, 0, 0.5);
+			padding: 20px;
+			border-radius: 15px;
+		}
+
+		.tag-dialog > section > h2 {grid-area: title; text-align: center;}
+		.tag-dialog > section > ul {grid-area: main;}
+		.tag-dialog > section > aside {grid-area: aside;}
+
+		.tag-dialog > section > .project-tags > h4 {
+			font-weight: 400;
+			font-size: 16px;
+			margin: 10px 0px;
+		}
+
+		#img-dialog-back, #tag-dialog-back {
+			position: absolute;
+			right: 15px;
+			bottom: 15px;
+			background: rgba(0, 0, 0, 0.5);
+			border-radius: 10px;
+			border: none;
+			padding: 5px 8px;
+			cursor: pointer;
+			transition: all 250ms ease;
+		}
+
+		#img-dialog-back {
+			right: 20px;
+			bottom: 20px;
+		}
+
+		#img-dialog-back:hover, #tag-dialog-back:hover {
+			scale: 120%;
+			background: rgba(0, 0, 0, 0.2);
+			backdrop-filter: blur(10px);
+		}
+
+		.image-dialog-image {
+			max-width: 40vw;
+			display: block;
+			border-radius: 10px;
+		}
+	</style>
+	<title>byte127x</title>
 </head>
 <body>
-	<h1>byte127x's list of cool websites 👍</h1>
-	<h3>Owned by byte127x</h3>
-	<!--<div class='section-container'>
+	<div class="tag-dialog">
 		<section>
-			<img src='img/GAMEY.png'>
-			<a href=Games/index.html>Games</a>
-		</section>
-		<section>
-			<img src='img/EPCG2.png'>
-			<a href=epcg2/index.html>EPCG2 Media</a>
-		</section>
-		<section>
-			<img src='img/EPCG2WIKI.png'>
-			<a href=wiki/index.html>EPCG2 Wiki</a>
-		</section>
-		<section>
-			<img src='img/XCODE.png'>
-			<a href='x-code.html'>X-Code Interpreter</a>
-		</section>
-		<section>
-			<img src='img/LIVELIBRE.png'>
-			<a href='livelibre.html'>LiveLibre apps</a>
-		</section>
-		<section>
-			<img src='img/STONKSCOW.png'>
-			<a href='stonkscow-port/index.html'>Stonks Cow Website (Official Port)</a>
-		</section>
-		<section>
-			<img src='img/JSFIDDLE.png'>
-			<a href='playgrounds.html'>JS Fiddle Playgrounds</a>
-		</section>
-	</div>-->
-
-	<section aria-label='Options'>
-		<div class="carousel" data-carosuel>
-			<button class="caro-btn prev" data-bb='<'>&larr;</button>
-			<button class="caro-btn next" data-bb='>'>&rarr;</button>
-			<ul data-slides>
-				<li class="slide" data-active>
-					<img src="img/GAMEY.png" alt="EPCG2 Media">
-					<div class="caro-label"><span>
-						Games<br>
-						<a href="Games/index.html">Go</a>
-					</span></div>
-				</li>
-
-				<li class="slide">
-					<img src="img/EPCG2.png" alt="EPCG2 Media">
-					<div class="caro-label"><span>
-						EPCG2 Media<br>
-						<a href="epcg2/index.html">Go</a>
-					</span></div>
-				</li>
-				
-				<li class="slide">
-					<img src="img/BLOGGY.png" alt="Song of the Week">
-					<div class="caro-label"><span>
-						Song of the Week<br>
-						<a href="blog/index.html">Go</a>
-					</span></div>
-				</li>
-
-				<li class="slide">
-					<img>
-					<div class="caro-label"><span>
-						Wix Websites<br>
-						<a href="wix.html">Go</a>
-					</span></div>
-				</li>
-
-				<li class="slide">
-					<img src="img/PHOTOLIB.png" alt="Photolib Stock Library">
-					<div class="caro-label"><span>
-						Photolib Stock Library<br>
-						<a href="photolib/index.html">Go</a>
-					</span></div>
-				</li>
-
-				<li class="slide">
-					<img src="https://flygplaanee.carrd.co/assets/images/image02.jpg?v=17ee86f3" alt="flygplaanee Airlines">
-					<div class="caro-label"><span>
-						flygplaanee Airlines<br>
-						<a href="https://flygplaanee.carrd.co/">Go</a>
-					</span></div>
-				</li>
-
-				<li class="slide">
-					<img src="img/STONKSCOW.png" alt="Stonks Cow Port">
-					<div class="caro-label"><span>
-						Stonks Cow Port<br>
-						<a href="stonkscow-port/index.html">Go</a>
-					</span></div>
-				</li>
-
-				<li class="slide">
-					<img src="img/LIVELIBRE.png" alt="JS Fiddle Playgrounds">
-					<div class="caro-label"><span>
-						Live Libre Apps<br>
-						<a href="livelibre.html">Go</a>
-					</span></div>
-				</li>
-
-				<li class="slide">
-					<img src="img/JSFIDDLE.png" alt="JS Fiddle Playgrounds">
-					<div class="caro-label"><span>
-						JS Fiddle Playgrounds<br>
-						<a href="playgrounds.html">Go</a>
-					</span></div>
-				</li>
-
-				<li class="slide">
-					<img src="img/XCODE.png" alt="EPCG2 Media">
-					<div class="caro-label"><span>
-						X-Code (UNFINSHED)<br>
-						<a href="x-code.html">Go</a>
-					</span></div>
-				</li>
-
-				<li class="slide">
-					<img src="img/EPCG2WIKI.png" alt="JS Fiddle Playgrounds">
-					<div class="caro-label"><span>
-						EPCG2 Wiki (Unfinished)<br>
-						<a href="wiki/index.html">Go</a>
-					</span></div>
-				</li>
+			<h2>Tag Info (Meanings and whatever)</h2>
+			<ul class='project-tags'>
+				<h4>Programming Languages</h4>
+				<a class='green'>Unity/C#</a>
+				<a class='yellow'>Python</a>
+				<a class='pink'>Adobe Flash</a>
+				<a class='lightgreen'>HTML/CSS</a>
+				<h4>Types of Apps</h4>
+				<a class='lightblue'>Games</a>
+				<a class='purple'>Desktop App</a>
+				<a class='silverfish'>Roblox</a>
+				<h4>Other</h4>
+				<a class='red'>Cancelled/Unfinished</a>
+				<a class='discordian'>Discord</a>
+				<a class='orange'>Videos</a>
 			</ul>
-		</div>
-	</section>
+			<aside class='project-tags'>
+				<h4>What does the "EPCG2" tag mean? </h4>
+				<p>The <a class='epcg2'>EPCG2</a>tag just means that this specific thing has its own video on EPCG2 Media. Check out the website to find its video!</p>
+			</aside>
+			<button id="tag-dialog-back">Back</button>
+		</section>
+	</div>
+	<div class="image-dialog">
+		<section>
+			<img src="https://tr.rbxcdn.com/79be86cedef57fe6bb30771534c2016e/150/150/Image/Webp" class="image-dialog-image">
+			<button id="img-dialog-back">Back</button>
+		</section>
+	</div>
 
-	<h3>Owned by others</h3>
-	<ul>
-		<li><a href='https://www.music-map.com/'>Music Map</li>
-		<li><a href='https://www.googlefight.com/'>Google Fight</li>
-		<li><a href='http://www.urban75.com/Mag/java7.html'>Mouse-Clicking Championships</li>
-		<li><a href='https://htwins.net'>htwins.net</li>
-		<li><a href='https://github.com/byte127x/'>Github</li>
-	</ul>
+	<nav class='navbar'>
+		<ul>
+			<li><h1>BYTE-127x <span class='smoltext'>... or something</span></h1></li>
+			<li></li>
+			<li><a href="https://www.youtube.com/channel/UCW4lpcZc_xp0uFj45HTnX6g" class='navbar-link' text='Youtube'>Youtube</a></li>
+			<li><a href="" class='navbar-link' text='About'>About</a></li>
+		</ul>
+	</nav>
+	<main class="mainpage-background">
+		<article class='mainpage'>
+			<h2>My Projects ...</h2>
+			<a href='javascript:void(0)' id='taginfo'>Tag Info</a>
+			<section class="projectlist">
+				<noscript>
+				<p>It seems you have JavaScript Disabled! If this is unintended then try reloading or disabling extentions (like adblockers). Otherwise, if you wanna scrape my project list, then go <a href="byte127x.github.io/funthings.json">here!</a></p></noscript>
+			</section>
+			<h2>Others' Projects ...</h2>
+			<section class="projectlist">
+			</section>
+		</article>
+	</main>
 </body>
 <script>
-	const buttons = document.querySelectorAll('[data-bb]')
-	buttons.forEach(button => {
-		button.addEventListener("click", () => {
-			var offset = 0
-			if (button.dataset.bb === '>') {
-				offset = 1
-			}
-			else {
-				offset = -1
-			}
+	const projectlist = document.getElementsByClassName('projectlist')[0]
+	const otherProjectlist = document.getElementsByClassName('projectlist')[1]
+	const tagColors = {
+		"Games": "lightblue",
+		"Unity/C#": "green",
+		"Adobe Flash": "pink",
+		"Cancelled/Unfinished": "red",
+		"HTML/CSS": "lightgreen",
+		"Videos": "orange",
+		"Python": "yellow",
+		"Desktop App": "purple",
+		"Discord": "discordian",
+		"Roblox": "silverfish",
+		"EPCG2": "epcg2"
+	}
 
-			const slides = button.closest('[data-carosuel]').querySelector('[data-slides]')
-			const activeSlide = slides.querySelector('[data-active]')
-			let newIdx = [...slides.children].indexOf(activeSlide) + offset
+	const imgDialog = document.getElementsByClassName('image-dialog')[0]
+	const imgDialogImage = document.getElementsByClassName('image-dialog-image')[0]
+	const imgDialogBack = document.getElementById('img-dialog-back')
+	const tagDialog = document.getElementsByClassName('tag-dialog')[0]
+	const tagInfo = document.getElementById('taginfo')
+	const tagDialogBack = document.getElementById('tag-dialog-back')
 
-			if (newIdx < 0) {
-				newIdx = slides.children.length-1
-			}
-			if (newIdx >= slides.children.length) {
-				newIdx = 0
-			}
+	function tagDialogFadeIn() {
+		tagDialog.classList.add('tag-dialog-fadein')
+		tagDialog.classList.remove('tag-dialog-fadeout')
+	}
+	function tagDialogFadeOut() {
+		tagDialog.classList.add('tag-dialog-fadeout')
+		tagDialog.classList.remove('tag-dialog-fadein')
+	}
 
-			slides.children[newIdx].dataset.active = true
-			delete activeSlide.dataset.active
-		})
-	})
+	function imgDialogFadeIn(imageElement) {
+		imgDialogImage.src = imageElement.src
+		imgDialog.classList.add('tag-dialog-fadein')
+		imgDialog.classList.remove('tag-dialog-fadeout')
+	}
+	function imgDialogFadeOut() {
+		imgDialog.classList.add('tag-dialog-fadeout')
+		imgDialog.classList.remove('tag-dialog-fadein')
+	}
+
+	function buildProjectCard(title, desc, link, img, tags) {
+		// Create parent for entire element
+		let parent = document.createElement('div')
+		parent.classList.add('project')
+
+		// Add image
+		let image = document.createElement('img')
+		image.src = img
+		image.alt = title
+		parent.appendChild(image)
+
+		// Add Title + Description
+		let dataDiv = document.createElement('div')
+		let titleA = document.createElement('a')
+		titleA.innerHTML = title
+		titleA.href = link
+
+		let description = document.createElement('p')
+		description.innerHTML = desc
+		dataDiv.appendChild(titleA)
+		dataDiv.appendChild(description)
+
+		// Add Tags
+		let tagContainer = document.createElement('section')
+		tagContainer.classList.add('project-tags')
+		for (let i=0; i < tags.length; i++) {
+			let newTag = document.createElement('a')
+			newTag.innerHTML = tags[i]
+			newTag.classList.add(tagColors[tags[i]])
+			tagContainer.appendChild(newTag)
+		}
+		dataDiv.appendChild(tagContainer)
+
+		// Push out to the page
+		parent.appendChild(dataDiv)
+		return parent
+	}
+	
+	for (let i=0; i < my_projects.length; i++) {
+		let proj = buildProjectCard(my_projects[i].title, my_projects[i].description, my_projects[i].link, my_projects[i].image, my_projects[i].tags)
+		projectlist.appendChild(proj)
+	}
+	
+	for (let i=0; i < other_projects.length; i++) {
+		let desc = `Created By: "${other_projects[i].author}"<br>${other_projects[i].description}`
+		let proj = buildProjectCard(other_projects[i].title, desc, other_projects[i].link, other_projects[i].image, other_projects[i].tags)
+		otherProjectlist.appendChild(proj)
+	}
+
+	// Make all images clickable for fullscreen
+	const images = document.getElementsByTagName('img')
+	for (let i=0; i < images.length; i++) {
+		images[i].onclick = () => {imgDialogFadeIn(images[i])}
+	}
+
+	tagInfo.onclick = tagDialogFadeIn
+	tagDialogBack.onclick = tagDialogFadeOut
+	imgDialogBack.onclick = imgDialogFadeOut
+	imgDialogImage.onclick = imgDialogImage.requestFullscreen
 </script>
 </html>
