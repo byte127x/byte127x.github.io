@@ -12,7 +12,7 @@ my_projects = [
 		"description": "The world's best fishing game ... that has Kasane Teto (hopefully better than Project SEKAI)",
 		"tags": ["Games", "Unity/C#", "EPCG2"]
 	}, {
-		"link": "https://byte127x.github.io/kasane-fishing",
+		"link": "https://byte127x.github.io/photolib/",
 		"title": "Photolib",
 		"image": "https://byte127x.github.io/img/PHOTOLIB.png",
 		"description": "Collection of some images and stuff. I guess.",
